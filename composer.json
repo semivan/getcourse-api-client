@@ -1,0 +1,27 @@
+{
+  "name": "semivan/getcourse-api-client",
+  "description": "PHP клиент для работы с API GetCourse",
+  "type": "library",
+  "license": "MIT",
+  "keywords": [
+    "getcourse",
+    "api",
+    "client",
+    "library"
+  ],
+  "authors": [
+    {
+      "name": "Ivan Semenikhin",
+      "email": "semenihin.ivan@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.1",
+    "symfony/http-client": "^4.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Getcourse\\": "src/"
+    }
+  }
+}
