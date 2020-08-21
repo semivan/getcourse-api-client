@@ -199,28 +199,6 @@ class CreateUserOperation extends AbstractOperation
 	}
 
 	/**
-	 * @param boolean $multipleOffers Разрешить добавлять несколько предложений в заказ
-	 * @return self
-	 */
-	public function setMultipleOffers(bool $multipleOffers): self
-	{
-		$this->system['multiple_offers'] = (int) $multipleOffers;
-
-		return $this;
-	}
-
-	/**
-	 * @param boolean $returnPaymentLink Возвращать ссылку на оплату
-	 * @return self
-	 */
-	public function setReturnPaymentLink(bool $returnPaymentLink): self
-	{
-		$this->system['return_payment_link'] = (int) $returnPaymentLink;
-
-		return $this;
-	}
-
-	/**
 	 * @param $partnerEmail Партнер пользователя
 	 * @return self
 	 */

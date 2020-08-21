@@ -23,7 +23,8 @@ class CreateDealOperation extends AbstractOperation
 	 * @var array
 	 */
 	private $system = [
-		'return_deal_number' => 1, // возвращать номер заказа
+		'return_deal_number'  => 1, // возвращать номер заказа
+		'return_payment_link' => 1, // возвращать ссылку на оплату
 	];
 
 	public function toArray(): array
@@ -227,6 +228,17 @@ class CreateDealOperation extends AbstractOperation
 	public function setCurrency(string $currency): self
 	{
 		$this->deal['deal_currency'] = $currency;
+
+		return $this;
+	}
+
+	/**
+	 * @param boolean $multipleOffers Разрешить добавлять несколько предложений в заказ
+	 * @return self
+	 */
+	public function setMultipleOffers(bool $multipleOffers): self
+	{
+		$this->system['multiple_offers'] = (int) $multipleOffers;
 
 		return $this;
 	}
