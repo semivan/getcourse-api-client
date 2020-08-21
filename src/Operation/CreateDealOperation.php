@@ -30,10 +30,10 @@ class CreateDealOperation extends AbstractOperation
 	public function toArray(): array
 	{
 		return [
-			'deal'    => $this->deal,
-			'user'    => $this->user,
-			'session' => $this->session,
-			'system'  => $this->system,
+			'deal'    => array_filter($this->deal, function($var) { return $var !== null; }),
+			'user'    => array_filter($this->user, function($var) { return $var !== null; }),
+			'session' => array_filter($this->session, function($var) { return $var !== null; }),
+			'system'  => array_filter($this->system, function($var) { return $var !== null; }),
 		];
 	}
 
@@ -48,7 +48,7 @@ class CreateDealOperation extends AbstractOperation
 	 * @param string $number Номер заказа
 	 * @return self
 	 */
-	public function setNumber(string $number): self
+	public function setNumber(?string $number): self
 	{
 		$this->deal['deal_number'] = $number;
 
@@ -59,7 +59,7 @@ class CreateDealOperation extends AbstractOperation
 	 * @param string $status Код статуса заказа
 	 * @return self
 	 */
-	public function setStatus(string $status): self
+	public function setStatus(?string $status): self
 	{
 		$this->deal['deal_status'] = $status;
 
@@ -70,7 +70,7 @@ class CreateDealOperation extends AbstractOperation
 	 * @param integer $quantity Количество
 	 * @return self
 	 */
-	public function setQuantity(int $quantity): self
+	public function setQuantity(?int $quantity): self
 	{
 		$this->deal['quantity'] = $quantity;
 
@@ -81,7 +81,7 @@ class CreateDealOperation extends AbstractOperation
 	 * @param string $managerEmail Email менеджера
 	 * @return self
 	 */
-	public function setManagerEmail(string $managerEmail): self
+	public function setManagerEmail(?string $managerEmail): self
 	{
 		$this->deal['manager_email'] = $managerEmail;
 
@@ -92,7 +92,7 @@ class CreateDealOperation extends AbstractOperation
 	 * @param string $createdAt Дата заказа
 	 * @return self
 	 */
-	public function setCreatedAt(string $createdAt): self
+	public function setCreatedAt(?string $createdAt): self
 	{
 		$this->deal['deal_created_at'] = $createdAt;
 
@@ -103,7 +103,7 @@ class CreateDealOperation extends AbstractOperation
 	 * @param string $finishedAt Дата оплаты/завершения заказа
 	 * @return self
 	 */
-	public function setFinishedAt(string $finishedAt): self
+	public function setFinishedAt(?string $finishedAt): self
 	{
 		$this->deal['deal_finished_at'] = $finishedAt;
 
@@ -125,7 +125,7 @@ class CreateDealOperation extends AbstractOperation
 	 * @param string $productTitle Наименование предложения
 	 * @return self
 	 */
-	public function setProductTitle(string $productTitle): self
+	public function setProductTitle(?string $productTitle): self
 	{
 		$this->deal['product_title'] = $productTitle;
 
@@ -136,7 +136,7 @@ class CreateDealOperation extends AbstractOperation
 	 * @param string $productDescription Описание предложения
 	 * @return self
 	 */
-	public function setProductDescription(string $productDescription): self
+	public function setProductDescription(?string $productDescription): self
 	{
 		$this->deal['product_description'] = $productDescription;
 
@@ -169,7 +169,7 @@ class CreateDealOperation extends AbstractOperation
 	 * @param string $comment Комментарий
 	 * @return self
 	 */
-	public function setComment(string $comment): self
+	public function setComment(?string $comment): self
 	{
 		$this->deal['deal_comment'] = $comment;
 
@@ -180,7 +180,7 @@ class CreateDealOperation extends AbstractOperation
 	 * @param string $paymentType Тип платежа
 	 * @return self
 	 */
-	public function setPaymentType(string $paymentType): self
+	public function setPaymentType(?string $paymentType): self
 	{
 		$this->deal['payment_type'] = $paymentType;
 
@@ -191,7 +191,7 @@ class CreateDealOperation extends AbstractOperation
 	 * @param string $paymentStatus Статус платежа
 	 * @return self
 	 */
-	public function setPaymentStatus(string $paymentStatus): self
+	public function setPaymentStatus(?string $paymentStatus): self
 	{
 		$this->deal['payment_status'] = $paymentStatus;
 
@@ -203,7 +203,7 @@ class CreateDealOperation extends AbstractOperation
 	 * @param mixed  $value Значение дополнительного поля
 	 * @return self
 	 */
-	public function addCustomField(string $field, $value): self
+	public function addCustomField(string $field, $value = null): self
 	{
 		$this->deal['addfields'][$field] = $value;
 
@@ -214,7 +214,7 @@ class CreateDealOperation extends AbstractOperation
 	 * @param string $partnerEmail Email партнера
 	 * @return self
 	 */
-	public function setPartnerEmail(string $partnerEmail): self
+	public function setPartnerEmail(?string $partnerEmail): self
 	{
 		$this->deal['partner_email'] = $partnerEmail;
 
@@ -225,7 +225,7 @@ class CreateDealOperation extends AbstractOperation
 	 * @param string $currency Код валюты заказа
 	 * @return self
 	 */
-	public function setCurrency(string $currency): self
+	public function setCurrency(?string $currency): self
 	{
 		$this->deal['deal_currency'] = $currency;
 
