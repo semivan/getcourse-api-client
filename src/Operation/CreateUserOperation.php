@@ -22,9 +22,9 @@ class CreateUserOperation extends AbstractOperation
 	public function toArray(): array
 	{
 		return [
-			'user'    => array_filter($this->user, function($var) { return $var !== null; }),
-			'session' => array_filter($this->session, function($var) { return $var !== null; }),
-			'system'  => array_filter($this->system, function($var) { return $var !== null; }),
+			'user'    => array_filter($this->user, function($var) { return ($var !== null || $var !== ''); }),
+			'session' => array_filter($this->session, function($var) { return ($var !== null || $var !== ''); }),
+			'system'  => array_filter($this->system, function($var) { return ($var !== null || $var !== ''); }),
 		];
 	}
 
