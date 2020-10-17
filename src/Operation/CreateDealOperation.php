@@ -30,10 +30,10 @@ class CreateDealOperation extends AbstractOperation
 	public function toArray(): array
 	{
 		return [
-			'deal'    => array_filter($this->deal, function($var) { return ($var !== null || $var !== ''); }),
-			'user'    => array_filter($this->user, function($var) { return ($var !== null || $var !== ''); }),
-			'session' => array_filter($this->session, function($var) { return ($var !== null || $var !== ''); }),
-			'system'  => array_filter($this->system, function($var) { return ($var !== null || $var !== ''); }),
+			'deal'    => array_filter($this->deal, function($var) { return ($var !== null && $var !== ''); }),
+			'user'    => array_filter($this->user, function($var) { return ($var !== null && $var !== ''); }),
+			'session' => array_filter($this->session, function($var) { return ($var !== null && $var !== ''); }),
+			'system'  => array_filter($this->system, function($var) { return ($var !== null && $var !== ''); }),
 		];
 	}
 
