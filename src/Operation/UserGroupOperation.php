@@ -2,7 +2,6 @@
 
 namespace Getcourse\Operation;
 
-use Getcourse\GetcourseException;
 use Getcourse\Object\Group;
 
 class UserGroupOperation extends AbstractOperation

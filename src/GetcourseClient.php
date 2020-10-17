@@ -68,15 +68,14 @@ class GetcourseClient
 				->request($method, $this->apiUrl . $endpoint, $options)
 				->toArray();
         } catch (\Exception $e) {
-			throw new GetcourseException($e->getMessage(), $e->getCode());
+			$content = [
+				'success'       => false,
+				'error_code'    => $e->getCode(),
+				'error_message' => $e->getMessage(),
+				'trace'         => $e->getTraceAsString(),
+			];
 		}
 
-		$response = new Response($content);
-
-		if (!$response->isSuccess()) {
-			throw new GetcourseException($response->getErrorMessage(), $response->getErrorCode());
-		}
-
-		return $response;
+		return new Response($content);
 	}
 }

@@ -7,7 +7,7 @@ class Response
 	/**
 	 * @var array
 	 */
-	private $params;
+	private $params = [];
 
 	public function __construct(array $params)
 	{
@@ -47,5 +47,10 @@ class Response
 	public function getInfo(): array
 	{
 		return $this->params['info'] ?? [];
+	}
+
+	public function getAll(): array
+	{
+		return $this->params;
 	}
 }
