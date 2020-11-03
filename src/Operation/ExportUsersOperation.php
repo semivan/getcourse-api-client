@@ -38,8 +38,6 @@ class ExportUsersOperation extends AbstractExportOperation
 		$users = [];
 
 		foreach ($this->_export($exportId) as $item) {
-			if ($item['Email'] === 'siant91@mail.ru') var_dump($item);
-
 			$users[] = new User($item);
 		}
 
